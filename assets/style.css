@@ -1,0 +1,60 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+h3{
+    font-weight: 900;
+    font-size: xx-large;
+}
+.butn{
+    width: 20vw;
+    height: 11vh;
+    background-color: rosybrown;
+    text-align: left;
+    font-weight: 700;
+    font-size: x-large;
+}
+
+.butn:hover{
+    color: white;
+    background-color: indianred;
+}
+
+#next{
+    font-size: x-large;
+}
+
+.correct {
+    background-color: rgb(26, 206, 26);
+    color: black;
+    pointer-events: none;
+}
+
+.wrong{
+    background-color: red;
+    color: red;
+    pointer-events: none;
+}
+.hidden {
+    /* display: none; */
+    box-shadow:1px 1px 20px 5px hotpink;
+}
+
+.start {
+    margin-top: 20vh;
+}
+
+.score{
+    font-weight: 700;
+    color: forestgreen;
+    width: 20vw;
+    height: 10vh;
+    inline-size: auto;
+    text-shadow: 2px 2px 20px  rgb(230, 230, 64);
+}
