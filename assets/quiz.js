@@ -29,17 +29,17 @@ let app = {
                   answer:  2
                 },
                 {
-                  q:      "Q1: Book is to Reading as Fork is to:",
+                  q:      "Q4: Book is to Reading as Fork is to:",
                   choices: ["A: Eating","B: Drawing","C: Playing","D: Drinking"],
                   answer:  1
                 },
                 {
-                  q:      "Q2: 'CSS' refers to?",
+                  q:      "Q5: 'CSS' refers to?",
                   choices: ["A: Javascript","B: HyperText Markup Language","C: Cascading Style Sheets","D: Node.js"],
                   answer:  3
                 },
                 {
-                  q:      "Q3: what is the color of watermelon",
+                  q:      "Q6: what is the color of watermelon",
                   choices: ["A: Red","B: Green","C: Yellow","D: Black"],
                   answer:  2
                 }
@@ -61,8 +61,8 @@ let app = {
 
     check:     function() {
                 if(parseInt(this.id[this.id.length-1]) === app.questions[app.index].answer) {
+                    this.classList.add("correct");
                      scoreNum.textContent  = parseInt(scoreNum.textContent) + 1;
-                     this.classList.add("correct");
                      app.score++;
                     app.done();
                      console.log(app.score)
