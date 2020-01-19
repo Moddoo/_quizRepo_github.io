@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="bg-white">
+<body class="bg-white end">
     <div class="container bg-warning mb-5 mt-3 hidden d-none" id="container">
         <h2 class="text-center display-3 text-primary pb-2">Quiz</h2>
         <div>
             <div class="row">
                 <h3 class="mb-3" id="qText">Q1: Whats your name??</h3>
-                <h3 class="ml-auto">Timer:</h3>
+                <h3 class="ml-auto" id="time"></h3>
             </div>
             <div class="row flex-column" id="options">
                 <button class="btn btn-lg butn w-75 m-1" id="op1"></button>
@@ -35,7 +35,9 @@
           <button class="btn btn-lg bg-success w-75 butn mx-auto text-center text-white" id="begin">Click To Begin</button>
         </div>
     </div>
-
+    <div class="">
+         <h1 id="end" class="d-none"></h1>
+    </div>
 
     
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

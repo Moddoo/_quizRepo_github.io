@@ -8,8 +8,9 @@ let op2     = document.getElementById("op2");
 let op3     = document.getElementById("op3");
 let op4     = document.getElementById("op4");
 let next    = document.getElementById("next");
+let time    = document.getElementById("time");
+let end     = document.getElementById("end");
 let scoreNum   = document.getElementById("score");
- 
  
 let app = {
     questions: [
@@ -57,29 +58,35 @@ let app = {
                   op2.textContent   = ` ${app.questions[app.index].choices[1]}`;
                   op3.textContent   = ` ${app.questions[app.index].choices[2]}`;
                   op4.textContent   = ` ${app.questions[app.index].choices[3]}`;
+                  app.countDown;
                },
+
+    sec:       70,           
 
     check:     function() {
                 if(parseInt(this.id[this.id.length-1]) === app.questions[app.index].answer) {
-                    this.classList.add("correct");
+                     this.classList.add("correct");
                      scoreNum.textContent  = parseInt(scoreNum.textContent) + 1;
                      app.score++;
-                    app.done();
-                     console.log(app.score)
+                     app.done();
+                    //  console.log(app.score)
                 } else {
                     this.classList.add("wrong");
                     app.done();
+                    app.sec -= 10;
                 }
                }  ,
               
     done:      function() {
+                  console.log(app.index);
+                  if (app.index === app.questions.length-1) {app.reset(); return};
                   for(el of event.target.parentElement.children) {
                   el.style.pointerEvents = "none";
                 }
                },
     
     next:      function() {
-                   if(app.index === app.questions.length-1) {return;};
+                   if(app.index === app.questions.length-1) {app.reset();return};
                    app.index++;
                    app.load();
                    for(el of option.children) {
@@ -87,7 +94,29 @@ let app = {
                     el.classList.remove("correct");
                     el.classList.remove("wrong")
                    };
-               }         
+               } , 
+    
+    reset:     function() {
+                    for(el of option.children) {
+                        el.style.pointerEvents = "none";
+                     }
+                    next.style.pointerEvents = "none"; 
+                    clearInterval(app.countDown);
+                    setTimeout(function() {
+                         end.textContent = "Your Score: " + app.score;
+                         contain.classList.add("d-none");
+                         end.classList.remove("d-none");
+                    },2000);
+               }  ,           
+                 
+    countDown: setInterval(function() {  
+                    time.textContent = "Timer: " + app.sec;
+                    if(app.sec<1) {
+                         app.reset();  
+                         return clearInterval;
+                        }
+                    app.sec--;
+               },1000)
 }
 
 begin.addEventListener("click", app.load);
@@ -97,6 +126,7 @@ op1.addEventListener("click", app.check);
 op2.addEventListener("click", app.check);
 op3.addEventListener("click", app.check);
 op4.addEventListener("click", app.check);
+
 
 
 
