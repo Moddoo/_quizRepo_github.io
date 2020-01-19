@@ -25,7 +25,7 @@ let app = {
                   answer:  3
                 },
                 {
-                  q:      "Q3: what is the color of watermelon",
+                  q:      "Q3: what is the color of watermelon??",
                   choices: ["A: Red","B: Green","C: Yellow","D: Black"],
                   answer:  2
                 },
@@ -40,7 +40,7 @@ let app = {
                   answer:  3
                 },
                 {
-                  q:      "Q6: what is the color of watermelon",
+                  q:      "Q6: what is the color of watermelon??",
                   choices: ["A: Red","B: Green","C: Yellow","D: Black"],
                   answer:  2
                 }
