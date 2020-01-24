@@ -63,18 +63,18 @@ let app = {
     sec:       70,           
 
     check:     function() {
-                if(parseInt(this.id[this.id.length-1]) === app.questions[app.index].answer) {
-                     this.classList.add("correct");
-                     scoreNum.textContent  = parseInt(scoreNum.textContent) + 1;
-                     app.score++;
-                     app.done();
-                } else {
-                    this.classList.add("wrong");
-                    app.done();
-                    app.sec -= 10;
-                }
-               }  ,
-              
+                   if(parseInt(this.id[this.id.length-1]) === app.questions[app.index].answer) {
+                   this.classList.add("correct");
+                   scoreNum.textContent  = parseInt(scoreNum.textContent) + 1;
+                   app.score++;
+                   app.done();
+                 } else {
+                   this.classList.add("wrong");
+                   app.done();
+                   app.sec -= 10;
+                 }
+    }  ,
+    
     done:      function() {
                   console.log(app.index);
                   if (app.index === app.questions.length-1) {app.reset(); return};
@@ -117,9 +117,9 @@ let app = {
                         }
                         app.sec--;
                         },1000)}
-
+       
             }
-            
+           
             
 
  begin.addEventListener("click", app.load); 
