@@ -10,6 +10,7 @@ let op4     = document.getElementById("op4");
 let next    = document.getElementById("next");
 let time    = document.getElementById("time");
 let end     = document.getElementById("end");
+let btns    = document.getElementsByClassName("botn");
 let scoreNum   = document.getElementById("score");
  
 let app = {
@@ -65,8 +66,8 @@ let app = {
     check:     function() {
                    if(parseInt(this.id[this.id.length-1]) === app.questions[app.index].answer) {
                    this.classList.add("correct");
-                   scoreNum.textContent  = parseInt(scoreNum.textContent) + 1;
                    app.score++;
+                   scoreNum.textContent  = app.score;
                    app.done();
                  } else {
                    this.classList.add("wrong");
@@ -76,19 +77,19 @@ let app = {
     }  ,
     
     done:      function() {
-                  console.log(app.index);
-                  if (app.index === app.questions.length-1) {app.reset(); return};
+                  if (app.index === app.questions.length-1) {app.reset();};
                   for(el of event.target.parentElement.children) {
                   el.style.pointerEvents = "none";
                 }
                },
     
     next:      function() {
-                   if(app.index === app.questions.length-1) {app.reset();return};
+                   if(app.index === app.questions.length-1) {app.reset();return;};
                    app.index++;
                    app.load();
+                   next.pointerEvents = "All";
                    for(el of option.children) {
-                    el.style.pointerEvents = "stroke";
+                    el.style.pointerEvents = "All";
                     el.classList.remove("correct");
                     el.classList.remove("wrong")
                    };
@@ -99,7 +100,7 @@ let app = {
                         el.style.pointerEvents = "none";
                      }
                     next.style.pointerEvents = "none"; 
-                    delete app.countDown;
+                    // delete app.countDown;
                     clearInterval(z);
                     setTimeout(function() {
                          end.textContent = "Your Score: " + app.score;
@@ -117,19 +118,25 @@ let app = {
                         }
                         app.sec--;
                         },1000)}
+  }
+        
        
-            }
+                      
+         
+
            
             
+  function click(bt){
+      for(el of bt){
+        el.addEventListener("click", app.check);
+      }
+  }
 
+ click(btns);
  begin.addEventListener("click", app.load); 
  begin.addEventListener("click", app.countDown); 
  next.addEventListener("click", app.next);
-            
- op1.addEventListener("click", app.check);
- op2.addEventListener("click", app.check);
- op3.addEventListener("click", app.check);
- op4.addEventListener("click", app.check);
+
 
 
 
